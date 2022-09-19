@@ -36,19 +36,32 @@
             "single"
         ],
         "no-duplicate-imports": "error",
-        // we want to force semicolons
         "semi": [
             "error",
             "always"
         ],
-        // we use 2 spaces to indent our code
         "indent": [
             "error",
             2
         ],
-        // we want to avoid extraneous spaces
         "no-multi-spaces": [
             "error"
-        ]
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "no-console": "warn",
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": [
+            "error",
+            {
+                "vars": "all",
+                "args": "after-used",
+                "ignoreRestSiblings": false
+            }
+        ],
+        "@typescript-eslint/explicit-function-return-type": "warn",
+        "no-empty": "warn"
     }
 }
