@@ -22,12 +22,7 @@
         "prettier"
     ],
     "rules": {
-        "max-len": [
-            "warn",
-            {
-                "code": 80
-            }
-        ],
+        "@typescript-eslint/no-explicit-any": "off",
         "react/react-in-jsx-scope": "off",
         "camelcase": "error",
         "spaced-comment": "error",
