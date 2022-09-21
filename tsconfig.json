@@ -20,12 +20,16 @@
     "allowJs": false,
     "jsx": "react",
     "moduleResolution": "node",
-    "baseUrl": "src",
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
     "suppressImplicitAnyIndexErrors": true,
     "allowSyntheticDefaultImports": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "baseUrl": "src",
+    "types": [
+      "node",
+      "jest"
+    ],
   },
   "include": [
     "src/**/*",
