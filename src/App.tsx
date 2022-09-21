@@ -1,10 +1,10 @@
 import React from 'react';
-import { SingUp } from './pages/login/Signup';
+import LoginRoutes from 'router/login.routes';
 
 function App(): JSX.Element {
   return (
     <div>
-      <SingUp />
+      <LoginRoutes />
     </div>
   );
 }
