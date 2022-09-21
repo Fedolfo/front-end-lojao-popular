@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 
 type InputProps = {
@@ -44,10 +43,6 @@ const Input = ({
       </label>
     </div>
   );
-};
-
-Input.propTypes = {
-  rest: PropTypes.node,
 };
 
 export default Input;
