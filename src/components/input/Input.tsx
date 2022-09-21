@@ -6,7 +6,7 @@ type InputProps = {
   name: string;
   className: string;
   testId: string;
-  onChange: (value: string) => void | Promise<void>;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   required?: boolean;
 };
 
@@ -19,11 +19,6 @@ const Input = ({
   onChange,
   required,
 }: InputProps): JSX.Element => {
-  const changeHandler = !onChange
-    ? undefined
-    : (event: React.ChangeEvent<HTMLInputElement>): void => {
-        onChange(event.target.value);
-      };
   return (
     <div className='mb-6'>
       <label
@@ -37,7 +32,7 @@ const Input = ({
           name={name}
           className={className}
           data-testid={`input-${testId}`}
-          onChange={changeHandler}
+          onChange={onChange}
           required={required}
         />
       </label>
