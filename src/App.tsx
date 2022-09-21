@@ -1,11 +1,10 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { SingUp } from './pages/login/Signup';
 
-function App() {
+function App(): JSX.Element {
   return (
     <div>
-      <p>Hello world</p>
+      <SingUp />
     </div>
   );
 }
