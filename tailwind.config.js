@@ -3,12 +3,21 @@ module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {
-      screens: {
-        android: '360px',
-        // => @media (min-width: 640px) { ... }
-      },
+    screens: {
+      android: '360px',
+      // => @media (min-width: 640px) { ... }
     },
+    fontFamily: {
+      serif: [
+        'serif',
+        ' ui-serif',
+        'Georgia',
+        'Cambria',
+        'Times New Roman',
+        'Times',
+      ],
+    },
+    extend: {},
   },
   variants: {
     extend: {},
