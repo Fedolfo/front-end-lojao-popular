@@ -7,11 +7,9 @@ const signUpSchema = Yup.object().shape({
   email: Yup.string()
     .email('Email deve ser um email válido')
     .required('Email requerido'),
-  password: Yup.string()
-    .required('Senha requerida')
-    .min(8, 'A senha é muito curta - deve ser 8 caracteres mínimo'),
+  password: Yup.string().required('Senha requerida'),
   passwordConfirmation: Yup.string()
-    .min(8, 'A senha é muito curta - deve ser 8 caracteres mínimo')
+    .oneOf([Yup.ref('password'), null], 'As senhas devem corresponder')
     .required('Confirmação da senha requerido'),
 });
 
