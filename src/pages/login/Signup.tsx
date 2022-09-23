@@ -71,7 +71,7 @@ export function SingUp(): JSX.Element {
               </div>
               <div className='mb-2'>
                 <label
-                  htmlFor='name'
+                  htmlFor='email'
                   className='block mb-1 text-sm font-medium text-gray-900 dark:text-gray-300'
                 >
                   Email
@@ -95,7 +95,7 @@ export function SingUp(): JSX.Element {
               </div>
               <div className='mb-2'>
                 <label
-                  htmlFor='name'
+                  htmlFor='password'
                   className='block mb-1 text-sm font-medium text-gray-900 dark:text-gray-300'
                 >
                   Senha
@@ -119,7 +119,7 @@ export function SingUp(): JSX.Element {
               </div>
               <div className='mb-2'>
                 <label
-                  htmlFor='name'
+                  htmlFor='passwordConfirmation'
                   className='block mb-1 text-sm font-medium text-gray-900 dark:text-gray-300'
                 >
                   Confirme sua senha
