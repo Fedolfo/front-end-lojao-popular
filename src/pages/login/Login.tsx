@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import loginSchema from 'utils/yup/login/login-schema';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { api } from 'service/api';
 
 type PropsLogin = {
   email: string;
@@ -9,24 +10,42 @@ type PropsLogin = {
 };
 
 function Login(): JSX.Element {
-  const [email] = useState<string>('');
-  const [password] = useState<string>('');
+  const goTo = useNavigate();
 
   const loginValues: PropsLogin = {
-    email,
-    password,
+    email: '',
+    password: '',
+  };
+
+  const handleLogin = async (values: PropsLogin): Promise<unknown> => {
+    try {
+      const { data } = await api.post('/login', values);
+      if (data) {
+        localStorage.setItem(
+          'token',
+          JSON.stringify({
+            token: data.accessToken,
+          }),
+        );
+      }
+
+      goTo('/register');
+    } catch (error) {
+      return error;
+    }
   };
 
   return (
     <Formik
       initialValues={loginValues}
       validationSchema={loginSchema}
-      onSubmit={(values) => {
-        console.log(values);
+      onSubmit={async (values) => {
+        await handleLogin(values);
       }}
     >
       {(formik) => {
-        const { errors, dirty, isValid, touched } = formik;
+        const { errors, dirty, isValid, touched, handleChange, handleBlur } =
+          formik;
         return (
           <Form>
             <div className='flex flex-col h-screen justify-center items-center'>
@@ -45,6 +64,8 @@ function Login(): JSX.Element {
                   type='email'
                   name='email'
                   id='email'
+                  onChange={handleChange}
+                  onBlur={handleBlur}
                   className={
                     errors.email && touched.email
                       ? 'android:w-80 block w-full p-2.5 border border-red-800 text-sm rounded-lg'
@@ -69,6 +90,8 @@ function Login(): JSX.Element {
                   type='password'
                   name='password'
                   id='password'
+                  onChange={handleChange}
+                  onBlur={handleBlur}
                   className={
                     errors.email && touched.email
                       ? 'android:w-80 block w-full p-2.5 border border-red-800 text-sm rounded-lg'
