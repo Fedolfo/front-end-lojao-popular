@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import signUpSchema from 'utils/yup/login/sign-up-schema';
+import { api } from 'service/api';
 
 type PropsRegister = {
   name: string;
@@ -16,6 +17,8 @@ export function SingUp(): JSX.Element {
   const [password] = useState<string>('');
   const [passwordConfirmation] = useState<string>('');
 
+  const goTo = useNavigate();
+
   const registerValues: PropsRegister = {
     name,
     email,
@@ -23,17 +26,30 @@ export function SingUp(): JSX.Element {
     passwordConfirmation,
   };
 
-  // const register = async (): Promise<any> => {
-  //   // eslint-disable-next-line no-console
-  //   console.log(values);
-  // };
+  const handleRegister = async (values: PropsRegister): Promise<unknown> => {
+    try {
+      const { data } = await api.post('/signup', values);
+      if (data) {
+        localStorage.setItem(
+          'token',
+          JSON.stringify({
+            token: data.accessToken,
+          }),
+        );
+      }
+
+      goTo('/login');
+    } catch (error) {
+      return error;
+    }
+  };
 
   return (
     <Formik
       initialValues={registerValues}
       validationSchema={signUpSchema}
-      onSubmit={(values) => {
-        console.log(values);
+      onSubmit={async (values) => {
+        await handleRegister(values);
       }}
     >
       {(formik) => {
