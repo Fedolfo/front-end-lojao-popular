@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import icon from '../../assets/images/iconPerson.png';
 import iconSearch from '../../assets/images/iconSearchOutline.png';
 
@@ -25,7 +26,9 @@ function Header(): JSX.Element {
         </button>
       </form>
       <div className='bg-[#DAA8A8]'>
-        <img src={icon} alt='ícone de perfil' />
+        <Link to='/profile'>
+          <img src={icon} alt='ícone de perfil' />
+        </Link>
       </div>
     </div>
   );
