@@ -1,15 +1,17 @@
+import Home from 'pages/home/Home';
 import Login from 'pages/login/Login';
 import { SingUp } from 'pages/login/Signup';
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
-function LoginRoutes(): JSX.Element {
+function MainRoutes(): JSX.Element {
   return (
     <Routes>
+      <Route path='/' element={<Home />} />
       <Route path='/register' element={<SingUp />} />
       <Route path='/login' element={<Login />} />
     </Routes>
   );
 }
 
-export default LoginRoutes;
+export default MainRoutes;

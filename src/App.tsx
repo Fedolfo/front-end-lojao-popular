@@ -1,10 +1,10 @@
 import React from 'react';
-import LoginRoutes from 'router/login.routes';
+import MainRoutes from 'router/routes';
 
 function App(): JSX.Element {
   return (
     <div>
-      <LoginRoutes />
+      <MainRoutes />
     </div>
   );
 }
