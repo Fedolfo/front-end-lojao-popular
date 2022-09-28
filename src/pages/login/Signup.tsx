@@ -38,7 +38,7 @@ export function SingUp(): JSX.Element {
         );
       }
 
-      goTo('/login');
+      goTo('/');
     } catch (error) {
       return error;
     }

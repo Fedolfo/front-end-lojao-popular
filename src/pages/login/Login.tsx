@@ -31,7 +31,7 @@ function Login(): JSX.Element {
         );
       }
 
-      goTo('/register');
+      goTo('/');
     } catch (error) {
       return error;
     }
