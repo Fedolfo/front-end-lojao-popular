@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import loginSchema from 'utils/yup/login/login-schema';
 import { Link, useNavigate } from 'react-router-dom';
@@ -10,11 +10,13 @@ type PropsLogin = {
 };
 
 function Login(): JSX.Element {
+  const [email] = useState<string>('');
+  const [password] = useState<string>('');
   const goTo = useNavigate();
 
   const loginValues: PropsLogin = {
-    email: '',
-    password: '',
+    email,
+    password,
   };
 
   const handleLogin = async (values: PropsLogin): Promise<unknown> => {
