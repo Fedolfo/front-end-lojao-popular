@@ -4,6 +4,7 @@ import iconSetting from '../../assets/images/iconSettingsOutline.png';
 import iconMessage from '../../assets/images/iconMessageCircleOutline.png';
 import iconHome from '../../assets/images/iconHomeOutline.png';
 import iconAlert from '../../assets/images/iconAlertTriangleOutline.svg';
+import iconLogOut from '../../assets/images/iconLogOut.svg';
 import { Link } from 'react-router-dom';
 
 function Profile(): JSX.Element {
@@ -18,6 +19,9 @@ function Profile(): JSX.Element {
       }
     }, sixDays);
   });
+
+  const handleStorage = (): void => localStorage.clear();
+
   return (
     <>
       {token?.token ? (
@@ -49,6 +53,18 @@ function Profile(): JSX.Element {
                     {title}
                   </Link>
                 ))}
+                <button
+                  type='button'
+                  onClick={handleStorage}
+                  className='flex items-center'
+                >
+                  <img
+                    src={iconLogOut}
+                    alt='Sair da Conta'
+                    className='mr-2 android:w-11 android:h-11'
+                  />
+                  <Link to='/'>Sair da Conta</Link>
+                </button>
               </li>
             </ol>
           </nav>
