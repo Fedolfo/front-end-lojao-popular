@@ -1,5 +1,6 @@
 import Header from 'components/header/Header';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Home(): JSX.Element {
   return (
@@ -8,9 +9,15 @@ function Home(): JSX.Element {
         <Header />
         <nav>
           <ol className='flex space-x-10 bg-red-600 text-white text-shadow justify-center font-LexendDeca text-lg'>
-            <li>Categorias</li>
-            <li>Localização</li>
-            <li>Contato</li>
+            {[
+              ['Categorias'],
+              ['Localização', '/localization'],
+              ['Contato', '/contact'],
+            ].map(([title, url]) => (
+              <Link key={title} to={url}>
+                <li>{title}</li>
+              </Link>
+            ))}
           </ol>
         </nav>
       </div>
