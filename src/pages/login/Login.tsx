@@ -24,6 +24,12 @@ function Login(): JSX.Element {
       const { data } = await api.post('/login', values);
       if (data) {
         localStorage.setItem(
+          'email',
+          JSON.stringify({
+            email: values.email,
+          }),
+        );
+        localStorage.setItem(
           'token',
           JSON.stringify({
             token: data.accessToken,
