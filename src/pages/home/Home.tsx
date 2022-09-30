@@ -29,28 +29,30 @@ function Home(): JSX.Element {
       <div className='flex flex-wrap justify-center'>
         {data.map((items) => (
           <div key={items.id} className='shadow-xl rounded-md android:m-2'>
-            <div className='android:mt-2'>
-              <div>
-                <img
-                  src={items.image}
-                  alt={items.title}
-                  className='android:w-40 android:h-44 rounded-t-md'
-                />
-              </div>
-              <div>
-                <h5 className='android:w-40 android:h-16 android:text-lg p-1'>
-                  {items.title}
-                </h5>
-                <small className='flex android:text-lg p-1'>
-                  R$ {items.price}
+            <Link to={`/product/details/${items.id}`}>
+              <div className='android:mt-2'>
+                <div>
                   <img
-                    src={iconArrowForwardOutline}
-                    alt=''
-                    className='ml-auto'
+                    src={items.image}
+                    alt={items.title}
+                    className='android:w-40 android:h-44 rounded-t-md'
                   />
-                </small>
+                </div>
+                <div>
+                  <h5 className='android:w-40 android:h-16 android:text-lg p-1'>
+                    {items.title}
+                  </h5>
+                  <small className='flex android:text-lg p-1'>
+                    R$ {items.price}
+                    <img
+                      src={iconArrowForwardOutline}
+                      alt=''
+                      className='ml-auto'
+                    />
+                  </small>
+                </div>
               </div>
-            </div>
+            </Link>
           </div>
         ))}
       </div>
