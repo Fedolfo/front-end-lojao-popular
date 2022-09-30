@@ -1,6 +1,8 @@
 import Header from 'components/header/Header';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { data } from '../../service/mockjson';
+import iconArrowForwardOutline from '../../assets/images/iconArrowForwardOutline.svg';
 
 function Home(): JSX.Element {
   return (
@@ -21,7 +23,37 @@ function Home(): JSX.Element {
           </ol>
         </nav>
       </div>
-      <p>Hello Home</p>
+      <h2 className='font-LexendDeca android:text-2xl android:mt-2 android:ml-2'>
+        Produtos
+      </h2>
+      <div className='flex flex-wrap justify-center'>
+        {data.map((items) => (
+          <div key={items.id} className='shadow-xl rounded-md android:m-2'>
+            <div className='android:mt-2'>
+              <div>
+                <img
+                  src={items.image}
+                  alt={items.title}
+                  className='android:w-40 android:h-44 rounded-t-md'
+                />
+              </div>
+              <div>
+                <h5 className='android:w-40 android:h-16 android:text-lg p-1'>
+                  {items.title}
+                </h5>
+                <small className='flex android:text-lg p-1'>
+                  R$ {items.price}
+                  <img
+                    src={iconArrowForwardOutline}
+                    alt=''
+                    className='ml-auto'
+                  />
+                </small>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
