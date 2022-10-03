@@ -102,19 +102,21 @@ function ProductDetails(): JSX.Element {
           <div className='android:absolute android:bottom-4 android:left-5'>
             {token ? (
               <button
-                type='submit'
+                type='button'
                 onClick={handleSetCart}
                 className='border border-black android:w-80 p-2 rounded'
               >
                 Adicionar ao carrinho
               </button>
             ) : (
-              <button
-                type='button'
-                className='border border-black android:w-80 p-2 rounded'
-              >
-                <Link to='/profile'>Adicionar ao carrinho</Link>
-              </button>
+              <Link to='/profile'>
+                <button
+                  type='button'
+                  className='border border-black android:w-80 p-2 rounded'
+                >
+                  Adicionar ao carrinho
+                </button>
+              </Link>
             )}
           </div>
         </div>
