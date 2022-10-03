@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import { Navigate, useParams } from 'react-router-dom';
+import React from 'react';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { data } from '../../service/mockjson';
 import shareIcon from '../../assets/images/shareIcon.svg';
-import bound from 'helpers/Math';
+import { handleSetToCart } from 'helpers/localStorage/productCart.localStorage';
 
 function ProductDetails(): JSX.Element {
   const { productId } = useParams();
-  const [amount, setAmount] = useState<number>(0);
 
   const token = JSON.parse(localStorage.getItem('token') as string);
+  const goTo = useNavigate();
 
   const recoverDataId = data.find(
     (element) => String(element.id) === String(productId),
@@ -51,31 +51,9 @@ function ProductDetails(): JSX.Element {
     handleMessageAfterClickShare();
   };
 
-  const handleChange = ({ target }: any): void => {
-    if (Number.isNaN(Number(target.value))) {
-      target.value = 0;
-    }
-    target.value = bound(Number(target.value));
-
-    setAmount(target.value);
-  };
-
-  // aumenta a quantidade em 1 e chama o handleChange
-  const increaseAmount = ({ target }: any): void => {
-    const input = target.previousSibling;
-    input.value = bound(Number(input.value) + 1);
-    handleChange({ target: input });
-  };
-
-  // diminui a quantidade em 1 e chama o handleChange
-  const decreaseAmount = ({ target }: any): void => {
-    const input = target.nextSibling;
-    input.value = bound(Number(input.value) - 1);
-    handleChange({ target: input });
-  };
-
-  const handleNavigate = (): JSX.Element => {
-    return <Navigate to='/profile' />;
+  const handleSetCart = (): void => {
+    handleSetToCart(recoverDataId);
+    goTo('/cart');
   };
 
   return (
@@ -113,29 +91,6 @@ function ProductDetails(): JSX.Element {
             <span className='android:text-3xl p-1 android:ml-2'>
               R$ {recoverDataId?.price}
             </span>
-            <div className='android:ml-auto android:mr-2'>
-              <button
-                type='button'
-                className='text-5xl'
-                onClick={decreaseAmount}
-              >
-                -
-              </button>
-              <input
-                name='amount'
-                value={amount}
-                type='text'
-                onChange={handleChange}
-                className='w-16 border-black text-center text-4xl'
-              />
-              <button
-                type='button'
-                className='text-5xl'
-                onClick={increaseAmount}
-              >
-                +
-              </button>
-            </div>
           </div>
           <div className='border border-y-yellow-50 android:h-60 android:mt-10 android:m-2'>
             <p className='text-left p-2 text-xl'>
@@ -148,17 +103,17 @@ function ProductDetails(): JSX.Element {
             {token ? (
               <button
                 type='submit'
+                onClick={handleSetCart}
                 className='border border-black android:w-80 p-2 rounded'
               >
                 Adicionar ao carrinho
               </button>
             ) : (
               <button
-                type='submit'
-                onClick={handleNavigate}
+                type='button'
                 className='border border-black android:w-80 p-2 rounded'
               >
-                Adicionar ao carrinho
+                <Link to='/profile'>Adicionar ao carrinho</Link>
               </button>
             )}
           </div>
