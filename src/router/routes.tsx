@@ -1,3 +1,4 @@
+import Cart from 'pages/cart/Cart';
 import Home from 'pages/home/Home';
 import Login from 'pages/login/Login';
 import { SingUp } from 'pages/login/Signup';
@@ -14,6 +15,7 @@ function MainRoutes(): JSX.Element {
       <Route path='/login' element={<Login />} />
       <Route path='/profile' element={<Profile />} />
       <Route path='/product/details/:productId' element={<ProductDetails />} />
+      <Route path='/cart' element={<Cart />} />
     </Routes>
   );
 }
