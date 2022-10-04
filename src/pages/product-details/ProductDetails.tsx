@@ -118,7 +118,7 @@ function ProductDetails(): JSX.Element {
           </small>
           <div className='flex items-baseline android:ml-2 android:space-x-20'>
             <span className='android:text-3xl android:p-1 android:ml-2'>
-              R$ {recoverDataId?.price?.toFixed(2)}
+              R$ {recoverDataId?.price?.toFixed(2).replace('.', ',')}
             </span>
             <div className=''>
               <button

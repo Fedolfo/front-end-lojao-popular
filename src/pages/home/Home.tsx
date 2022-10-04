@@ -43,7 +43,7 @@ function Home(): JSX.Element {
                     {items.title}
                   </h5>
                   <small className='flex android:text-lg p-1'>
-                    R$ {items.price}
+                    R$ {items.price.toFixed(2).replace('.', ',')}
                     <img
                       src={iconArrowForwardOutline}
                       alt=''
