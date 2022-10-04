@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { data } from '../../service/mockjson';
 import shareIcon from '../../assets/images/shareIcon.svg';
 import { handleSetToCart } from 'helpers/localStorage/productCart.localStorage';
+import bound from 'helpers/Math';
 
 function ProductDetails(): JSX.Element {
   const { productId } = useParams();
+  const [amount, setAmount] = useState<number>(1);
 
   const token = JSON.parse(localStorage.getItem('token') as string);
   const goTo = useNavigate();
@@ -51,8 +53,32 @@ function ProductDetails(): JSX.Element {
     handleMessageAfterClickShare();
   };
 
+  const handleChange = ({ target }: any): void => {
+    if (Number.isNaN(Number(target.value))) {
+      target.value = 0;
+    }
+
+    target.value = bound(Number(target.value));
+
+    setAmount(target.value);
+  };
+
+  // aumenta a quantidade em 1 e chama o handleChange
+  const increaseAmount = ({ target }: any): void => {
+    const input = target.previousSibling;
+    input.value = bound(Number(input.value) + 1);
+    handleChange({ target: input });
+  };
+
+  // diminui a quantidade em 1 e chama o handleChange
+  const decreaseAmount = ({ target }: any): void => {
+    const input = target.nextSibling;
+    input.value = bound(Number(input.value) - 1);
+    handleChange({ target: input });
+  };
+
   const handleSetCart = (): void => {
-    handleSetToCart(recoverDataId);
+    handleSetToCart(recoverDataId, amount);
     goTo('/cart');
   };
 
@@ -70,7 +96,7 @@ function ProductDetails(): JSX.Element {
           {/* Container title com button share */}
           <div className='flex android:ml-2'>
             <div className='flex android:w-80'>
-              <h5 className='android:text-2xl p-1 android:mb-8'>
+              <h5 className='android:text-2xl p-1 android:mb-8 android:w-72'>
                 {recoverDataId?.title}
               </h5>
             </div>
@@ -87,10 +113,36 @@ function ProductDetails(): JSX.Element {
             </div>
           </div>
           {/* Container price e amount*/}
-          <div className='flex items-baseline android:mt-10 android:ml-2'>
-            <span className='android:text-3xl p-1 android:ml-2'>
-              R$ {recoverDataId?.price}
+          <small className='flex justify-end text-xs android:mr-2 text-red-600'>
+            {amount < 1 && 'Você pode adicionar a partir de 1 un.'}
+          </small>
+          <div className='flex items-baseline android:ml-2 android:space-x-20'>
+            <span className='android:text-3xl android:p-1 android:ml-2'>
+              R$ {recoverDataId?.price?.toFixed(2)}
             </span>
+            <div className=''>
+              <button
+                type='button'
+                className='text-4xl'
+                onClick={decreaseAmount}
+              >
+                -
+              </button>
+              <input
+                name='amount'
+                value={amount}
+                type='text'
+                onChange={handleChange}
+                className='android:w-10 text-center text-2xl'
+              />
+              <button
+                type='button'
+                className='text-4xl'
+                onClick={increaseAmount}
+              >
+                +
+              </button>
+            </div>
           </div>
           <div className='border border-y-yellow-50 android:h-60 android:mt-10 android:m-2'>
             <p className='text-left p-2 text-xl'>
@@ -105,6 +157,7 @@ function ProductDetails(): JSX.Element {
                 type='button'
                 onClick={handleSetCart}
                 className='border border-black android:w-80 p-2 rounded'
+                disabled={amount < 1}
               >
                 Adicionar ao carrinho
               </button>
