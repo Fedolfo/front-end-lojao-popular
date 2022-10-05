@@ -4,23 +4,24 @@ import instagram from 'assets/images/instagram.svg';
 
 function Footer(): JSX.Element {
   return (
-    <footer className='flex flex-wrap border android:relative z-10 w-full android:text-xs p-2 android:space-x-10 bg-red-500 text-white mt-2'>
-      <div className='android:ml-10 android:w-32'>
+    <footer className='flex flex-wrap justify-center border android:relative w-full android:text-xs p-2 bg-red-500 text-white mt-2'>
+      <div className='android:w-32 android:mr-8'>
         <h3 className='android:mb-2 font-extralight underline' id='localizacao'>
           Nosso endereço
         </h3>
         <p className='font-extralight'>
-          Av. Sebastião Antônio Ribeiro, 930 - Gávea, Vespasiano - MG, 33202-757
+          CNPJ: 10.189.823/0001-60 / Av. Sebastião Antônio Ribeiro, n.º 930 -
+          Gávea, Vespasiano - MG, 33202-757
         </p>
       </div>
-      <div>
+      <div className='android:w-32'>
         <h3 className='android:mb-2 font-extralight underline' id='contato'>
           Nosso Contato
         </h3>
         <p className='font-extralight'>+55 31 8779-4969 </p>
-        <p className='font-extralight'>dev-filipe@hotmail.com</p>
+        <p className='font-extralight'>edfinanceiro@hotmail.com</p>
       </div>
-      <div className='android:mt-2 android:ml-10 android:w-32'>
+      <div className='android:mt-2 android:w-32 android:mr-8'>
         <h3 className='android:mb-2 font-extralight underline'>
           Nossas rede socias
         </h3>
@@ -41,7 +42,7 @@ function Footer(): JSX.Element {
           </a>
         </div>
       </div>
-      <div className='mt-2'>
+      <div className='mt-2 android:w-32'>
         <h3 className='android:mb-2 font-extralight underline'>
           Nossos parceiros
         </h3>
