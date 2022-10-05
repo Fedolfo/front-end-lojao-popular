@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import iconCart from '../../assets/images/iconShoppingCart.png';
 import iconSetting from '../../assets/images/iconSettingsOutline.png';
 import iconMessage from '../../assets/images/iconMessageCircleOutline.png';
@@ -10,15 +10,6 @@ import { Link } from 'react-router-dom';
 function Profile(): JSX.Element {
   const token = JSON.parse(localStorage.getItem('token') as string);
   const email = JSON.parse(localStorage.getItem('email') as string);
-
-  useEffect(() => {
-    const sixDays = 518400;
-    setTimeout(() => {
-      if (token) {
-        localStorage.clear();
-      }
-    }, sixDays);
-  });
 
   const handleStorage = (): void => localStorage.clear();
 
