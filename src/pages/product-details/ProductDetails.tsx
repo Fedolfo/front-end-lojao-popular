@@ -3,6 +3,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { data } from '../../service/mockjson';
 import shareIcon from '../../assets/images/shareIcon.svg';
 import { handleSetToCart } from 'helpers/localStorage/productCart.localStorage';
+import iconArrowBackOutline from 'assets/images/iconArrowBackOutline.svg';
 import bound from 'helpers/Math';
 
 function ProductDetails(): JSX.Element {
@@ -87,6 +88,13 @@ function ProductDetails(): JSX.Element {
       <div key={recoverDataId?.id}>
         <div>
           <div>
+            <Link to='/'>
+              <img
+                src={iconArrowBackOutline}
+                alt='ícone voltar pagina principal'
+                className='absolute'
+              />
+            </Link>
             <img
               src={recoverDataId?.image}
               alt={recoverDataId?.title}
