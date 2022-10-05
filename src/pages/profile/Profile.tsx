@@ -18,7 +18,6 @@ function Profile(): JSX.Element {
       {token?.token ? (
         <>
           <div className='flex flex-col font-LexendDeca android:text-2xl android:mt-20 android:ml-5'>
-            <p className='mb-1'>Filipe Cândido</p>
             <p>
               {email?.email
                 ? email?.email
