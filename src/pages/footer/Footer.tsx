@@ -1,0 +1,62 @@
+import React from 'react';
+import facebook from 'assets/images/facebook.svg';
+import instagram from 'assets/images/instagram.svg';
+
+function Footer(): JSX.Element {
+  return (
+    <footer className='flex flex-wrap border android:relative z-10 w-full android:text-xs p-2 android:space-x-10 bg-red-500 text-white mt-2'>
+      <div className='android:ml-10 android:w-32'>
+        <h3 className='android:mb-2 font-extralight underline' id='localizacao'>
+          Nosso endereço
+        </h3>
+        <p className='font-extralight'>
+          Av. Sebastião Antônio Ribeiro, 930 - Gávea, Vespasiano - MG, 33202-757
+        </p>
+      </div>
+      <div>
+        <h3 className='android:mb-2 font-extralight underline' id='contato'>
+          Nosso Contato
+        </h3>
+        <p className='font-extralight'>+55 31 8779-4969 </p>
+        <p className='font-extralight'>dev-filipe@hotmail.com</p>
+      </div>
+      <div className='android:mt-2 android:ml-10 android:w-32'>
+        <h3 className='android:mb-2 font-extralight underline'>
+          Nossas rede socias
+        </h3>
+        <div className='flex android:w-20 android:space-x-2'>
+          <a
+            href='https://www.instagram.com/lojaopop/'
+            target='_blank'
+            rel='noreferrer'
+          >
+            <img src={instagram} alt='fotos' />
+          </a>
+          <a
+            href='https://www.facebook.com/lojaopop'
+            target='_blank'
+            rel='noreferrer'
+          >
+            <img src={facebook} alt='fotos' />
+          </a>
+        </div>
+      </div>
+      <div className='mt-2'>
+        <h3 className='android:mb-2 font-extralight underline'>
+          Nossos parceiros
+        </h3>
+        <div className='flex android:w-9'>
+          <a
+            href='https://www.instagram.com/sonhomeubb/'
+            target='_blank'
+            rel='noreferrer'
+          >
+            <img src={instagram} alt='fotos' />
+          </a>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+export default Footer;

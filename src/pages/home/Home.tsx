@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { data } from '../../service/mockjson';
 import iconArrowForwardOutline from '../../assets/images/iconArrowForwardOutline.svg';
+import Footer from 'pages/footer/Footer';
 
 function Home(): JSX.Element {
   return (
@@ -13,12 +14,14 @@ function Home(): JSX.Element {
           <ol className='flex space-x-10 bg-red-600 text-white text-shadow justify-center font-LexendDeca text-lg'>
             {[
               ['Categorias'],
-              ['Localização', '/localization'],
-              ['Contato', '/contact'],
-            ].map(([title, url]) => (
-              <Link key={title} to={url}>
-                <li>{title}</li>
-              </Link>
+              ['Localização', '#localizacao'],
+              ['Contato', '#contato'],
+            ].map(([title, anchor]) => (
+              <ol key={title}>
+                <a href={anchor}>
+                  <li>{title}</li>
+                </a>
+              </ol>
             ))}
           </ol>
         </nav>
@@ -55,6 +58,7 @@ function Home(): JSX.Element {
             </Link>
           </div>
         ))}
+        <Footer />
       </div>
     </div>
   );
