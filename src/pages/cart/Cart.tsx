@@ -19,16 +19,24 @@ function Cart(): JSX.Element {
   const navigate = useNavigate();
   const token = JSON.parse(localStorage.getItem('token') as string);
 
+  const handleProductsLocalStorage = (): PropsProducts[] =>
+    JSON.parse(localStorage.getItem('cart') as string);
+
   useEffect(() => {
-    if (!token) {
+    if (!token?.token) {
       return navigate('/profile');
     }
   }, []);
 
   useEffect(() => {
-    const products = JSON.parse(localStorage.getItem('cart') as string);
-    setProductStorage(products);
+    setProductStorage(handleProductsLocalStorage());
   }, []);
+
+  useEffect(() => {
+    if (handleProductsLocalStorage()?.length === 0) {
+      localStorage.removeItem('cart');
+    }
+  });
 
   useEffect(() => {
     const resultTotal = (): void => {
@@ -41,11 +49,21 @@ function Cart(): JSX.Element {
     resultTotal();
   }, [productsStorage]);
 
+  const handleRemoveToCart = (item: any): void => {
+    const deleteProduct = handleProductsLocalStorage().filter(
+      (cartProduct) => cartProduct.id !== item.id,
+    );
+    localStorage.setItem('cart', JSON.stringify(deleteProduct));
+    setProductStorage(deleteProduct);
+  };
+
   if (!productsStorage) {
     return (
       <div>
         <div className='flex android:space-x-16 android:p-2'>
-          <img src={iconArrowBackOutline} alt='Icone de voltar' />
+          <Link to='/'>
+            <img src={iconArrowBackOutline} alt='Icone de voltar' />
+          </Link>
           <h1 className='text-3xl android:mt-2'>Carrinho</h1>
         </div>
         <div className='flex flex-col justify-center'>
@@ -65,12 +83,12 @@ function Cart(): JSX.Element {
   }
 
   const url = (): string => {
-    const test = productsStorage.map((e) => {
+    const products = productsStorage.map((e) => {
       const { title, amount } = e;
       return ` ${title} - Qtd: ${amount} `;
     });
 
-    return `https://wa.me/553187794969?text=Items:[${test}], Preço Total: R$${total
+    return `https://wa.me/553187794969?text=Items:[${products}], Preço Total: R$${total
       .toFixed(2)
       .replace('.', ',')}`;
   };
@@ -91,8 +109,8 @@ function Cart(): JSX.Element {
             className='android:w-20 android:h-20 android:m-1'
           />
           <div className='flex flex-col android:p-2 android:space-y-2'>
-            <h1 className='android:w-40 android:text-sm android:mb-2 android:h-8'>
-              {item.title}
+            <h1 className='android:w-40 android:text-sm android:mb-2 android:h-8 text-blue-400'>
+              <Link to={`/product/details/${index + 1}`}>{item.title}</Link>
             </h1>
             <small>Qtd: {item.amount}</small>
           </div>
@@ -101,6 +119,7 @@ function Cart(): JSX.Element {
               src={iconCloseOutline}
               alt='botão de fechar'
               className='android:w-8 ml-auto'
+              onClick={(): void => handleRemoveToCart(item)}
             />
             <span className='android:text-base'>
               R${(item.price * item.amount).toFixed(2).replace('.', ',')}
