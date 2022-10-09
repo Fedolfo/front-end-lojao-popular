@@ -28,7 +28,7 @@ export function SingUp(): JSX.Element {
 
   const handleRegister = async (values: PropsRegister): Promise<unknown> => {
     try {
-      const { data } = await api.post('/signup', values);
+      const { data } = await api.post('api/signup', values);
       if (data) {
         localStorage.setItem(
           'email',

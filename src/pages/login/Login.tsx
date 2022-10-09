@@ -21,7 +21,7 @@ function Login(): JSX.Element {
 
   const handleLogin = async (values: PropsLogin): Promise<unknown> => {
     try {
-      const { data } = await api.post('/login', values);
+      const { data } = await api.post('/api/login', values);
       if (data) {
         localStorage.setItem(
           'email',
