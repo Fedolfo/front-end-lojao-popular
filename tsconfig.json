@@ -38,6 +38,8 @@
   "exclude": [
     "node_modules",
     "build",
-    "scripts"
+    "scripts",
+    "**/*.spec.ts",
+    "**/*.test.ts"
   ]
 }
