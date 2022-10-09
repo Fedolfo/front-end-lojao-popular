@@ -24,7 +24,7 @@
     "yup": "^0.32.11"
   },
   "scripts": {
-    "start": "craco start",
+    "start": "react-scripts start",
     "build": "craco build",
     "test": "jest --watch --runInBand",
     "test:staged": "jest --findRelatedTests",
