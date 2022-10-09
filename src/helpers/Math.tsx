@@ -1,6 +1,6 @@
 const LOWER_BOUND = 0;
 const UPPER_BOUND = 99;
-
+// bound
 export const bound = (
   x: number,
   min = LOWER_BOUND,
