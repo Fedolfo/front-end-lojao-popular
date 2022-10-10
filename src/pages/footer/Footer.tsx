@@ -6,7 +6,10 @@ function Footer(): JSX.Element {
   return (
     <footer className='flex flex-wrap justify-center border android:relative w-full android:text-xs p-2 bg-red-500 text-white mt-2'>
       <div className='android:w-32 android:mr-8'>
-        <h3 className='android:mb-2 font-extralight underline' id='localizacao'>
+        <h3
+          className='android:mb-2 font-LexendDeca text-shadow'
+          id='localizacao'
+        >
           Nosso endereço
         </h3>
         <p className='font-extralight'>
@@ -15,14 +18,14 @@ function Footer(): JSX.Element {
         </p>
       </div>
       <div className='android:w-32'>
-        <h3 className='android:mb-2 font-extralight underline' id='contato'>
+        <h3 className='android:mb-2 font-LexendDeca text-shadow' id='contato'>
           Nosso Contato
         </h3>
         <p className='font-extralight'>+55 31 8779-4969 </p>
         <p className='font-extralight'>edfinanceiro@hotmail.com</p>
       </div>
       <div className='android:mt-2 android:w-32 android:mr-8'>
-        <h3 className='android:mb-2 font-extralight underline'>
+        <h3 className='android:mb-2 font-LexendDecat text-shadow'>
           Nossas rede socias
         </h3>
         <div className='flex android:w-20 android:space-x-2'>
@@ -43,7 +46,7 @@ function Footer(): JSX.Element {
         </div>
       </div>
       <div className='mt-2 android:w-32'>
-        <h3 className='android:mb-2 font-extralight underline'>
+        <h3 className='android:mb-2 font-LexendDeca text-shadow'>
           Nossos parceiros
         </h3>
         <div className='flex android:w-9'>
