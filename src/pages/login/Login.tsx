@@ -58,7 +58,9 @@ function Login(): JSX.Element {
           <Form>
             <div className='flex flex-col h-screen justify-center items-center'>
               <div className='android:relative android:bottom-20'>
-                <h1 className='text-4xl'>Lojão Popular</h1>
+                <Link to='/'>
+                  <h1 className='text-4xl'>Lojão Popular</h1>
+                </Link>
               </div>
               <span className='text-base'>Faça login na sua conta</span>
               <div className='mb-2'>
