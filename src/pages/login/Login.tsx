@@ -115,7 +115,7 @@ function Login(): JSX.Element {
                   className='text-xs text-red-900 mt-1'
                 />
                 <small className='text-base mt-1 flex justify-end underline'>
-                  Esqueceu a senha?
+                  <Link to='/forget_password'>Esqueceu a senha?</Link>
                 </small>
               </div>
 

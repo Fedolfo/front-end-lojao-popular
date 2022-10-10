@@ -1,4 +1,5 @@
 import Cart from 'pages/cart/Cart';
+import ForgetPassword from 'pages/forget-password/ForgetPassword';
 import Home from 'pages/home/Home';
 import Login from 'pages/login/Login';
 import { SingUp } from 'pages/login/Signup';
@@ -14,6 +15,7 @@ function MainRoutes(): JSX.Element {
       <Route path='/' element={<Home />} />
       <Route path='/register' element={<SingUp />} />
       <Route path='/login' element={<Login />} />
+      <Route path='/forget_password' element={<ForgetPassword />} />
       <Route path='/profile' element={<Profile />} />
       <Route path='/product/details/:productId' element={<ProductDetails />} />
       <Route path='/cart' element={<Cart />} />
