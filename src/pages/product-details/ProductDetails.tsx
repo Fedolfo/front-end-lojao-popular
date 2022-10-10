@@ -114,7 +114,7 @@ function ProductDetails(): JSX.Element {
                 type='button'
                 data-testid='share-btn'
                 onClick={handleClickShareIcon}
-                className='android:ml-auto android:mr-4 android:mt-2'
+                className='android:ml-auto android:mt-2'
               >
                 <img src={shareIcon} alt='Compartilhar' />
               </button>
@@ -124,15 +124,15 @@ function ProductDetails(): JSX.Element {
           <small className='flex justify-end text-xs android:mr-2 text-red-600'>
             {amount < 1 && 'Você pode adicionar a partir de 1 un.'}
           </small>
-          <div className='flex items-baseline android:ml-2 android:space-x-20'>
+          <div className='flex items-center android:ml-2 android:space-x-20'>
             <span className='android:text-3xl android:p-1 android:ml-2'>
               R$ {recoverDataId?.price?.toFixed(2).replace('.', ',')}
             </span>
-            <div className=''>
+            <div className='flex items-end'>
               <button
                 type='button'
-                className='text-4xl'
                 onClick={decreaseAmount}
+                className='android:text-4xl'
               >
                 -
               </button>
@@ -141,11 +141,11 @@ function ProductDetails(): JSX.Element {
                 value={amount}
                 type='text'
                 onChange={handleChange}
-                className='android:w-10 text-center text-2xl'
+                className='android:w-10 text-center text-2xl bg-[#f0f0f0]'
               />
               <button
                 type='button'
-                className='text-4xl'
+                className='android:text-4xl'
                 onClick={increaseAmount}
               >
                 +
@@ -159,7 +159,7 @@ function ProductDetails(): JSX.Element {
               pra cima
             </p>
           </div>
-          <div className='android:absolute android:bottom-4 android:left-5'>
+          <div className='flex justify-center'>
             {token ? (
               <button
                 type='button'
