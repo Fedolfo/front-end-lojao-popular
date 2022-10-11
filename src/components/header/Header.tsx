@@ -13,7 +13,6 @@ function Header(): JSX.Element {
       >
         Lojão Popular
       </h3>
-
       <form action='#' className='flex justify-center items-center'>
         <label htmlFor='search'>
           <input
@@ -25,7 +24,7 @@ function Header(): JSX.Element {
             data-testid='input-search'
           />
         </label>
-        <button type='submit' className='bg-[##f0f0f0] android:h-8 android:w-8'>
+        <button type='submit' className='bg-[#f0f0f0] android:h-8 android:w-8'>
           <img src={iconSearch} alt='Lupa de busca' className='ml-0.5' />
         </button>
       </form>
