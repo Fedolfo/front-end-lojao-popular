@@ -7,7 +7,7 @@ function Footer(): JSX.Element {
     <footer className='flex flex-wrap justify-center border android:relative w-full android:text-xs p-2 bg-[#ce021b] text-white mt-2'>
       <div className='android:w-32 android:mr-8'>
         <h3 className='android:mb-2 font-serif' id='localizacao'>
-          Nosso endereço
+          Nosso Endereço
         </h3>
         <p className='font-extralight'>
           CNPJ: 10.189.823/0001-60 / Av. Sebastião Antônio Ribeiro, n.º 930 -
@@ -22,7 +22,7 @@ function Footer(): JSX.Element {
         <p className='font-extralight'>edfinanceiro@hotmail.com</p>
       </div>
       <div className='android:mt-2 android:w-32 android:mr-8'>
-        <h3 className='android:mb-2 font-serift'>Nossas rede socias</h3>
+        <h3 className='android:mb-2 font-serift'>Nossas Redes Sociais</h3>
         <div className='flex android:w-20 android:space-x-2'>
           <a
             href='https://www.instagram.com/lojaopop/'
@@ -41,7 +41,7 @@ function Footer(): JSX.Element {
         </div>
       </div>
       <div className='mt-2 android:w-32'>
-        <h3 className='android:mb-2 font-serif'>Nossos parceiros</h3>
+        <h3 className='android:mb-2 font-serif'>Nossos Parceiros</h3>
         <div className='flex android:w-9'>
           <a
             href='https://www.instagram.com/sonhomeubb/'
