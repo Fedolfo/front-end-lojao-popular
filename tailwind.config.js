@@ -16,7 +16,6 @@ module.exports = {
         'Times New Roman',
         'Times',
       ],
-      LexendDeca: ['Lexend Deca'],
     },
     extend: {},
   },

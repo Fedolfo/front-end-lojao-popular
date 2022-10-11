@@ -8,10 +8,10 @@ import Footer from 'pages/footer/Footer';
 function Home(): JSX.Element {
   return (
     <div>
-      <div className='bg-red-500'>
+      <div>
         <Header />
         <nav>
-          <ol className='flex space-x-10 bg-red-600 text-white text-shadow justify-center font-LexendDeca text-lg'>
+          <ol className='flex space-x-10 bg-[#ce021b] text-white justify-center font-serif text-lg'>
             {[
               ['Categorias'],
               ['Localização', '#localizacao'],
@@ -26,7 +26,7 @@ function Home(): JSX.Element {
           </ol>
         </nav>
       </div>
-      <h2 className='font-LexendDeca android:text-2xl android:mt-2 android:ml-2'>
+      <h2 className='font-serif android:text-2xl android:mt-2 android:ml-2'>
         Produtos
       </h2>
       <div className='flex flex-wrap justify-center'>

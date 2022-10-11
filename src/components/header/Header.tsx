@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import icon from '../../assets/images/iconPerson.png';
-import iconSearch from '../../assets/images/iconSearchOutline.png';
+import icon from '../../assets/images/iconPerson.svg';
+import iconSearch from '../../assets/images/iconSearchOutline.svg';
 
 function Header(): JSX.Element {
   const reloadPage = (): void => window.location.reload();
   return (
-    <div className='flex space-x-6 justify-center items-center p-5 bg-red-500'>
+    <div className='flex space-x-6 justify-center items-center p-5 bg-[#ce021b] '>
       <h3
-        className='text-lg w-16 font-LexendDeca text-white font-bold text-shadow'
+        className='text-lg w-16 font-serif text-white font-bold'
         onClick={reloadPage}
       >
         Lojão Popular

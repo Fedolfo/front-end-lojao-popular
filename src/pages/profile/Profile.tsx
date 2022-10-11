@@ -17,7 +17,7 @@ function Profile(): JSX.Element {
     <>
       {token?.token ? (
         <>
-          <div className='flex flex-col font-LexendDeca android:text-2xl android:mt-20 android:ml-5'>
+          <div className='flex flex-col font-serif android:text-2xl android:mt-20 android:ml-5'>
             <p>
               {email?.email
                 ? email?.email
@@ -25,7 +25,7 @@ function Profile(): JSX.Element {
             </p>
           </div>
           <nav className='android:mt-36'>
-            <ol className='flex flex-col font-LexendDeca android:text-2xl android:ml-5'>
+            <ol className='flex flex-col font-serif android:text-2xl android:ml-5'>
               <li>
                 {[
                   ['Inicio', '/', iconHome],
@@ -69,10 +69,10 @@ function Profile(): JSX.Element {
             />
           </div>
           <div className='flex flex-col text-center'>
-            <p className='android:mt-5 text-2xl font-LexendDeca'>
+            <p className='android:mt-5 text-2xl font-serif'>
               Ops, parece que você não tem uma conta!
             </p>
-            <p className='android:mt-14 text-2xl font-LexendDeca'>
+            <p className='android:mt-14 text-2xl font-serif'>
               <Link to='/register' className='underline'>
                 Registre-se
               </Link>{' '}
@@ -81,7 +81,7 @@ function Profile(): JSX.Element {
                 login
               </Link>
             </p>
-            <p className='android:mt-20 text-2xl font-LexendDeca'>
+            <p className='android:mt-20 text-2xl font-serif'>
               <Link to='/' className='underline'>
                 Voltar a página inicial
               </Link>
