@@ -35,8 +35,11 @@ function ForgetPassword(): JSX.Element {
       if (axiosError) {
         setAxiosError('');
       }
+      if (axiosErrorEmail) {
+        setAxiosErrorEmail('');
+      }
     }, 8000);
-  }, [axiosError]);
+  }, [axiosError, axiosErrorEmail]);
 
   const handleForgetPassword = async (e: MouseEvent): Promise<void> => {
     e.preventDefault();
