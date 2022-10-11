@@ -25,11 +25,11 @@ function Header(): JSX.Element {
             data-testid='input-search'
           />
         </label>
-        <button type='submit' className='bg-slate-100 android:h-8 android:w-8'>
+        <button type='submit' className='bg-[##f0f0f0] android:h-8 android:w-8'>
           <img src={iconSearch} alt='Lupa de busca' className='ml-0.5' />
         </button>
       </form>
-      <div className='bg-slate-100'>
+      <div className='bg-[#f0f0f0]'>
         <Link to='/profile'>
           <img src={icon} alt='ícone de perfil' />
         </Link>
