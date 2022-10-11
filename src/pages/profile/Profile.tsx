@@ -81,14 +81,6 @@ function Profile(): JSX.Element {
                 login
               </Link>
             </p>
-
-            <p className='android:mt-16 text-2xl font-LexendDeca'>
-              Precisa de ajuda? <br />
-              <Link to='/contact' className='underline'>
-                Entre em contato
-              </Link>
-            </p>
-
             <p className='android:mt-20 text-2xl font-LexendDeca'>
               <Link to='/' className='underline'>
                 Voltar a página inicial
